@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>리딩앤 아카데미 | 전국 사업설명회 — 학원장 전용</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-deep: #0F3D2E;
+  --green-mid:  #165C43;
+  --green-bright: #1E8A60;
+  --green-light: #27B07A;
+  --green-pale:  #E8F5EF;
+  --green-pale2: #C8E8D8;
+  --gold:        #C9A84C;
+  --gold-light:  #F0D98A;
+  --gold-pale:   #FBF4E0;
+  --ivory:       #FAFAF7;
+  --white:       #FFFFFF;
+  --text-dark:   #0F1F18;
+  --text-mid:    #2E5044;
+  --text-light:  #6B8A7A;
+  --border:      rgba(21,92,67,0.15);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--white);color:var(--text-dark);line-height:1.7}
+
+/* ── HERO ── */
+.hero{
+  background:var(--green-deep);
+  position:relative;overflow:hidden;
+  padding:72px 24px 64px;text-align:center;
+}
+.hero-texture{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(39,176,122,0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 10%, rgba(201,168,76,0.10) 0%, transparent 50%),
+    linear-gradient(rgba(39,176,122,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(39,176,122,0.04) 1px, transparent 1px);
+  background-size:100% 100%, 100% 100%, 56px 56px, 56px 56px;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:700;letter-spacing:0.12em;
+  color:var(--gold-light);text-transform:uppercase;
+  border:1px solid rgba(201,168,76,0.3);
+  padding:5px 16px;border-radius:2px;margin-bottom:24px;position:relative;
+}
+.hero-main{
+  font-family:'Noto Serif KR',serif;
+  font-size:clamp(26px,6vw,48px);font-weight:700;
+  color:var(--white);line-height:1.25;margin-bottom:8px;position:relative;
+}
+.hero-main em{
+  font-style:normal;
+  background:linear-gradient(90deg,#F0D98A,#C9A84C);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub-big{
+  font-size:clamp(15px,3vw,20px);
+  color:rgba(255,255,255,0.65);margin-bottom:6px;position:relative;font-weight:400;
+}
+.hero-sub{
+  font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:8px;position:relative;
+}
+.hero-period{
+  display:inline-block;
+  font-size:12px;font-weight:500;letter-spacing:0.05em;
+  color:var(--gold-light);
+  border:1px solid rgba(201,168,76,0.25);
+  padding:4px 14px;border-radius:2px;margin-bottom:32px;position:relative;
+}
+.cta-btn{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--gold),#A8863A);
+  color:var(--green-deep);font-weight:700;font-size:16px;
+  padding:16px 44px;border-radius:3px;
+  text-decoration:none;border:none;cursor:pointer;
+  font-family:'Noto Sans KR',sans-serif;
+  letter-spacing:0.03em;
+  transition:transform 0.15s,box-shadow 0.15s;
+  box-shadow:0 4px 24px rgba(201,168,76,0.35);position:relative;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,168,76,0.45)}
+.cta-btn.outline{
+  background:transparent;color:var(--white);
+  border:1px solid rgba(255,255,255,0.3);
+  box-shadow:none;font-size:14px;padding:12px 28px;
+}
+.cta-btn.outline:hover{background:rgba(255,255,255,0.08);box-shadow:none}
+.hero-meta{
+  margin-top:24px;display:flex;justify-content:center;
+  gap:20px;flex-wrap:wrap;position:relative;
+}
+.hero-meta-item{
+  display:flex;align-items:center;gap:6px;
+  font-size:12px;color:rgba(255,255,255,0.45);
+}
+.hero-meta-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* ── DIVIDER ── */
+.divider{height:1px;background:var(--border);max-width:760px;margin:0 auto}
+
+/* ── SECTION ── */
+.section{padding:64px 24px;max-width:760px;margin:0 auto}
+.section-eyebrow{
+  font-size:11px;font-weight:700;letter-spacing:0.12em;
+  color:var(--green-bright);text-transform:uppercase;margin-bottom:10px;
+}
+.section-title{
+  font-family:'Noto Serif KR',serif;
+  font-size:clamp(20px,4vw,28px);font-weight:700;
+  color:var(--text-dark);line-height:1.4;margin-bottom:14px;
+}
+.section-body{font-size:15px;color:var(--text-mid);line-height:1.9}
+
+/* ── S1 QUESTION BG ── */
+.question-bg{background:var(--green-deep);padding:64px 24px}
+.question-inner{max-width:760px;margin:0 auto}
+.q-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.12em;color:var(--gold-light);text-transform:uppercase;margin-bottom:14px}
+.q-headline{
+  font-family:'Noto Serif KR',serif;
+  font-size:clamp(16px,3.2vw,22px);
+  color:rgba(255,255,255,0.5);margin-bottom:28px;font-weight:400;
+}
+.q-headline strong{color:var(--white)}
+.q-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.q-item{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  border-left:3px solid var(--gold);
+  border-radius:3px;padding:18px 20px;
+  display:flex;align-items:flex-start;gap:14px;
+}
+.q-num{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:0.05em;min-width:20px;padding-top:2px}
+.q-text{font-size:15px;color:rgba(255,255,255,0.8);line-height:1.65}
+.q-sub{
+  margin-top:28px;padding:20px 22px;
+  background:rgba(39,176,122,0.12);
+  border:1px solid rgba(39,176,122,0.2);border-radius:3px;
+  font-size:14px;color:rgba(255,255,255,0.65);line-height:1.8;
+}
+.q-sub strong{color:var(--white)}
+
+/* ── S2 ANSWER ── */
+.answer-block{
+  background:var(--green-pale);
+  border-left:4px solid var(--green-bright);
+  border-radius:3px;padding:28px 26px;margin-top:14px;
+}
+.answer-block p{
+  font-size:16px;color:var(--green-deep);
+  font-family:'Noto Serif KR',serif;line-height:1.95;
+}
+.answer-block strong{color:var(--green-deep);font-weight:700}
+.curriculum-flow{
+  display:flex;align-items:center;flex-wrap:wrap;
+  gap:0;margin-top:24px;
+}
+.cf-step{
+  background:var(--white);
+  border:1px solid var(--border);border-radius:3px;
+  padding:12px 16px;flex:1;min-width:100px;text-align:center;
+}
+.cf-step-label{font-size:10px;font-weight:700;letter-spacing:0.08em;color:var(--green-bright);text-transform:uppercase;margin-bottom:4px}
+.cf-step-text{font-size:13px;font-weight:500;color:var(--text-dark)}
+.cf-arrow{
+  width:24px;text-align:center;font-size:14px;
+  color:var(--gold);flex-shrink:0;padding:0 2px;
+}
+
+/* ── S3 CASES ── */
+.cases-bg{background:var(--ivory);padding:64px 24px}
+.cases-inner{max-width:760px;margin:0 auto}
+.cases-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+.case-card{
+  background:var(--white);
+  border:1px solid var(--border);border-radius:6px;
+  padding:22px 20px;position:relative;overflow:hidden;
+}
+.case-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--green-bright),var(--green-light));
+}
+.case-num{
+  font-family:'Noto Serif KR',serif;
+  font-size:32px;font-weight:700;
+  color:var(--green-light);line-height:1;margin-bottom:6px;
+}
+.case-num span{font-size:14px;font-weight:400;color:var(--text-light)}
+.case-title{font-size:14px;font-weight:700;color:var(--text-dark);margin-bottom:6px;line-height:1.4}
+.case-desc{font-size:12px;color:var(--text-light);line-height:1.7}
+.case-badge{
+  display:inline-block;font-size:10px;font-weight:700;
+  background:var(--green-pale);color:var(--green-mid);
+  padding:3px 9px;border-radius:2px;margin-bottom:8px;letter-spacing:0.05em;
+}
+
+/* ── S4 BENEFITS ── */
+.benefit-highlight{
+  background:linear-gradient(135deg,var(--green-deep),var(--green-mid));
+  border-radius:6px;padding:28px 24px;margin-bottom:16px;
+  position:relative;overflow:hidden;
+}
+.benefit-highlight::before{
+  content:'';position:absolute;right:-20px;top:-20px;
+  width:120px;height:120px;border-radius:50%;
+  background:rgba(201,168,76,0.1);
+}
+.bh-label{font-size:10px;font-weight:700;letter-spacing:0.1em;color:var(--gold-light);text-transform:uppercase;margin-bottom:8px}
+.bh-title{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;color:var(--white);margin-bottom:6px;line-height:1.4}
+.bh-desc{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7}
+.benefits-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.benefit-item{
+  background:var(--ivory);border:1px solid var(--border);border-radius:4px;
+  padding:16px 18px;display:flex;align-items:flex-start;gap:14px;
+}
+.benefit-icon-wrap{
+  width:34px;height:34px;border-radius:6px;
+  background:var(--green-pale);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:14px;
+}
+.benefit-text-wrap{}
+.benefit-title-txt{font-size:14px;font-weight:700;color:var(--text-dark);margin-bottom:3px}
+.benefit-desc-txt{font-size:12px;color:var(--text-light);line-height:1.6}
+
+/* ── S5 SCHEDULE ── */
+.schedule-bg{background:var(--green-deep);padding:64px 24px}
+.schedule-inner{max-width:760px;margin:0 auto}
+.sch-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.12em;color:var(--gold-light);text-transform:uppercase;margin-bottom:12px}
+.sch-title{
+  font-family:'Noto Serif KR',serif;
+  font-size:clamp(18px,3.5vw,24px);font-weight:700;color:var(--white);margin-bottom:6px;
+}
+.sch-sub{font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:28px;line-height:1.7}
+
+/* 서울 특별 카드 */
+.seoul-card{
+  background:rgba(201,168,76,0.1);
+  border:1px solid rgba(201,168,76,0.3);
+  border-radius:6px;padding:22px 22px;margin-bottom:16px;
+  position:relative;
+}
+.seoul-tag{
+  display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.08em;
+  background:var(--gold);color:var(--green-deep);
+  padding:3px 10px;border-radius:2px;margin-bottom:10px;
+  text-transform:uppercase;
+}
+.seoul-city{
+  font-family:'Noto Serif KR',serif;
+  font-size:20px;font-weight:700;color:var(--white);margin-bottom:4px;
+}
+.seoul-date{font-size:14px;color:var(--gold-light);font-weight:500;margin-bottom:8px}
+.seoul-detail{font-size:12px;color:rgba(255,255,255,0.55);line-height:1.7}
+.seoul-speaker{
+  margin-top:12px;padding:10px 14px;
+  background:rgba(255,255,255,0.05);border-radius:3px;
+  display:flex;align-items:center;gap:8px;
+}
+.seoul-speaker-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.seoul-speaker-text{font-size:12px;color:rgba(255,255,255,0.7)}
+
+/* 전국 설명회 안내 */
+.national-notice{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:4px;padding:12px 16px;margin-bottom:12px;
+  display:flex;align-items:flex-start;gap:10px;
+}
+.national-notice-icon{font-size:14px;flex-shrink:0;padding-top:1px}
+.national-notice-text{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.7}
+.national-notice-text strong{color:rgba(255,255,255,0.8)}
+
+/* 지역 그리드 */
+.region-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+  gap:8px;
+}
+.region-card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:4px;padding:14px 14px;
+  transition:background 0.15s,border-color 0.15s;cursor:pointer;
+}
+.region-card:hover{background:rgba(255,255,255,0.1);border-color:rgba(39,176,122,0.4)}
+.rc-city{font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px}
+.rc-date{font-size:12px;color:rgba(255,255,255,0.5)}
+.rc-day{font-size:11px;color:rgba(255,255,255,0.3);margin-top:2px}
+
+.sch-cta{margin-top:28px;text-align:center}
+
+/* ── 서울 토크 NUDGE ── */
+.talk-nudge{
+  background:var(--gold-pale);
+  border:1px solid rgba(201,168,76,0.25);
+  padding:28px 24px;text-align:center;
+}
+.talk-nudge p{font-size:13px;color:var(--text-mid);margin-bottom:10px;line-height:1.7}
+.talk-nudge strong{color:var(--text-dark)}
+
+/* ── FORM ── */
+.form-section{background:var(--ivory);padding:64px 24px}
+.form-inner{max-width:600px;margin:0 auto}
+.form-title{
+  font-family:'Noto Serif KR',serif;
+  font-size:22px;font-weight:700;color:var(--text-dark);margin-bottom:6px;
+}
+.form-subtitle{font-size:14px;color:var(--text-light);margin-bottom:32px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-group{display:flex;flex-direction:column;gap:5px}
+.form-group.full{grid-column:1/-1}
+.form-label{font-size:12px;font-weight:500;color:var(--text-mid)}
+.form-label .req{color:#C0392B}
+.form-input{
+  font-size:14px;padding:11px 13px;
+  border:1px solid #BDD5C8;border-radius:3px;
+  background:var(--white);color:var(--text-dark);outline:none;
+  font-family:'Noto Sans KR',sans-serif;transition:border-color 0.15s;
+}
+.form-input:focus{border-color:var(--green-bright)}
+textarea.form-input{min-height:80px;resize:vertical}
+.form-submit{
+  width:100%;margin-top:20px;padding:16px;
+  background:var(--green-deep);color:var(--white);
+  border:none;border-radius:3px;
+  font-size:16px;font-weight:700;cursor:pointer;
+  font-family:'Noto Sans KR',sans-serif;
+  letter-spacing:0.03em;transition:background 0.15s;
+}
+.form-submit:hover{background:var(--green-mid)}
+.form-agree{font-size:11px;color:var(--text-light);text-align:center;margin-top:12px;line-height:1.6}
+.success-msg{display:none;text-align:center;padding:32px;background:#E8F5EF;border-radius:6px;margin-top:20px}
+.success-msg.show{display:block}
+.success-msg p:first-child{font-size:16px;font-weight:700;color:#1E5C3A;margin-bottom:6px}
+.success-msg p{font-size:13px;color:#2E7D50}
+
+/* ── PARENT NUDGE ── */
+.parent-nudge{
+  background:var(--green-deep);
+  border-top:1px solid rgba(255,255,255,0.08);
+  padding:20px 24px;text-align:center;
+}
+.parent-nudge p{font-size:13px;color:rgba(255,255,255,0.45)}
+.parent-nudge a{color:var(--gold-light);font-weight:700;text-decoration:underline;cursor:pointer}
+
+/* ── FOOTER ── */
+.footer{background:var(--green-deep);padding:28px 24px;text-align:center;border-top:1px solid rgba(255,255,255,0.06)}
+.footer p{font-size:11px;color:rgba(255,255,255,0.25);line-height:1.8}
+
+@media(max-width:540px){
+  .cases-grid{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .form-group.full{grid-column:1}
+  .region-grid{grid-template-columns:repeat(2,1fr)}
+  .curriculum-flow{flex-direction:column;align-items:stretch}
+  .cf-arrow{transform:rotate(90deg);text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-badge">학원장 전용 · 전국 사업설명회</div>
+  <h1 class="hero-main">
+    읽기로 바꿔야<br><em>돈을 법니다.</em>
+  </h1>
+  <p class="hero-sub-big">영어교육 사업, 리딩앤 아카데미로 시작하세요</p>
+  <p class="hero-sub">리딩앤 아카데미 전국 사업설명회</p>
+  <div class="hero-period">2026. 6. 2 — 6. 19</div><br>
+  <a href="#apply" class="cta-btn">사업설명회 신청하기 →</a>
+  <div class="hero-meta">
+    <span class="hero-meta-item"><span class="hero-meta-dot"></span>서울 포함 전국 10개 지역</span>
+    <span class="hero-meta-item"><span class="hero-meta-dot"></span>학원장 전용 무료 행사</span>
+    <span class="hero-meta-item"><span class="hero-meta-dot"></span>현장 계약 특별 혜택</span>
+  </div>
+</section>
+
+<!-- ── S1 QUESTION ── -->
+<section class="question-bg">
+  <div class="question-inner">
+    <div class="q-eyebrow">원장님께 드리는 질문</div>
+    <p class="q-headline">지금 운영하고 계신 학원,<br><strong>진짜 차별화가 있으신가요?</strong></p>
+    <ul class="q-list">
+      <li class="q-item">
+        <span class="q-num">Q1</span>
+        <span class="q-text">AI 시대에서 우리 학원이 전달하는 교육 가치, 학부모에게 명확히 설명하실 수 있나요?</span>
+      </li>
+      <li class="q-item">
+        <span class="q-num">Q2</span>
+        <span class="q-text">옆 학원이 쓰는 프로그램 따라 쓰다 보니, 프로그램만 많고 제대로 활용도 안 되지 않나요?</span>
+      </li>
+      <li class="q-item">
+        <span class="q-num">Q3</span>
+        <span class="q-text">진짜 영어를 구사하는 아이들로 키워주고 싶은데, 그게 가능한 커리큘럼이 있는지 모르겠으신가요?</span>
+      </li>
+    </ul>
+    <div class="q-sub">
+      리딩앤 아카데미 운영 전반을 안내하는 <strong>학원장 전용 사업설명회</strong>입니다.<br>
+      6월 2일 서울을 시작으로, <strong>전국 10개 도시</strong>에서 원장님들을 직접 만나뵙겠습니다.
+    </div>
+  </div>
+</section>
+
+<!-- ── S2 ANSWER ── -->
+<section class="section">
+  <div class="section-eyebrow">리딩앤의 답</div>
+  <h2 class="section-title">읽고 생각하는 능력,<br>훈련으로 만들어집니다</h2>
+  <div class="answer-block">
+    <p>
+      리딩앤 아카데미의 단계별 커리큘럼은 <strong>INPUT에서 OUTPUT으로</strong> 자연스럽게 이어지도록 설계되어 있습니다.<br>
+      학생이 읽고 → 이해하고 → 말하고 → 쓰는 과정을 반복하는 동안,<br>
+      선생님은 AI 리포트를 통해 <strong>체계적으로 성장을 가이드</strong>할 수 있습니다.<br><br>
+      원어민 없이도, 복잡한 수업 준비 없이도 운영할 수 있는 구조입니다.
+    </p>
+  </div>
+  <div class="curriculum-flow" style="margin-top:20px">
+    <div class="cf-step">
+      <div class="cf-step-label">Input</div>
+      <div class="cf-step-text">읽기 · 듣기</div>
+    </div>
+    <div class="cf-arrow">→</div>
+    <div class="cf-step">
+      <div class="cf-step-label">Process</div>
+      <div class="cf-step-text">AI 분석 · 퀴즈</div>
+    </div>
+    <div class="cf-arrow">→</div>
+    <div class="cf-step">
+      <div class="cf-step-label">Output</div>
+      <div class="cf-step-text">말하기 · 쓰기</div>
+    </div>
+    <div class="cf-arrow">→</div>
+    <div class="cf-step">
+      <div class="cf-step-label">Coach</div>
+      <div class="cf-step-text">교사 피드백</div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ── S3 CASES ── -->
+<section class="cases-bg">
+  <div class="cases-inner">
+    <div class="section-eyebrow" style="color:var(--green-bright)">성공 사례</div>
+    <h2 class="section-title">리딩앤 아카데미를 시작한<br>원장님들의 이야기</h2>
+    <p class="section-body" style="margin-bottom:24px">아래 수치는 리딩앤 아카데미 운영 원장님들의 실제 사례를 기반으로 합니다. 자세한 내용은 설명회 현장에서 확인하세요.</p>
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-badge">회원 수 증가</div>
+        <div class="case-num">+<span>평균</span></div>
+        <div class="case-title">도입 6개월 내 평균 원생 수 유의미하게 증가</div>
+        <div class="case-desc">리딩앤 도입 후 학부모 입소문으로 신규 원생이 꾸준히 유입된 사례들이 있습니다. 구체적 수치는 현장 공유 예정.</div>
+      </div>
+      <div class="case-card">
+        <div class="case-badge">학생 만족도</div>
+        <div class="case-num">↑<span>상승</span></div>
+        <div class="case-title">아이들 스스로 하고 싶은 수업이라는 반응</div>
+        <div class="case-desc">AI 기반 인터랙티브 학습으로 학생 자기주도성이 높아지고 결석률이 감소한 사례.</div>
+      </div>
+      <div class="case-card">
+        <div class="case-badge">학부모 만족도</div>
+        <div class="case-num">↑<span>상승</span></div>
+        <div class="case-title">AI 리포트로 성장 근거를 학부모에게 직접 제시</div>
+        <div class="case-desc">매달 학부모에게 자동 발송되는 성장 리포트로 재등록률이 눈에 띄게 개선된 사례.</div>
+      </div>
+      <div class="case-card">
+        <div class="case-badge">확장 사례</div>
+        <div class="case-num">+1<span>관 확장</span></div>
+        <div class="case-title">어학원의 신규 초등관 확장 성공 사례</div>
+        <div class="case-desc">기존 어학원에 리딩앤 초등관을 추가 오픈, 새로운 수익원 확보에 성공한 원장님 사례.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── S4 BENEFITS ── -->
+<section class="section">
+  <div class="section-eyebrow">설명회에서 얻는 것</div>
+  <h2 class="section-title">설명회 하루,<br>이걸 가져가실 수 있습니다</h2>
+  <div class="benefit-highlight">
+    <div class="bh-label">★ 가장 중요한 혜택</div>
+    <div class="bh-title">현장 계약 시 특별 혜택 제공</div>
+    <div class="bh-desc">설명회 당일 계약하시는 원장님께는 본사 지원 혜택이 별도 제공됩니다.<br>자세한 혜택 내용은 현장에서 안내드립니다.</div>
+  </div>
+  <ul class="benefits-list">
+    <li class="benefit-item">
+      <div class="benefit-icon-wrap">📊</div>
+      <div class="benefit-text-wrap">
+        <div class="benefit-title-txt">리딩앤 아카데미 사업모델 및 수익 구조 안내</div>
+        <div class="benefit-desc-txt">초기 투자비용, 운영비, 예상 수익 구조를 투명하게 공개합니다.</div>
+      </div>
+    </li>
+    <li class="benefit-item">
+      <div class="benefit-icon-wrap">📚</div>
+      <div class="benefit-text-wrap">
+        <div class="benefit-title-txt">커리큘럼 및 교재 시스템 심층 소개</div>
+        <div class="benefit-desc-txt">옥스포드·내셔널지오그래픽 등 프리미엄 도서 기반의 단계별 커리큘럼 직접 확인.</div>
+      </div>
+    </li>
+    <li class="benefit-item">
+      <div class="benefit-icon-wrap">🏆</div>
+      <div class="benefit-text-wrap">
+        <div class="benefit-title-txt">실제 운영 원장님 성공 사례 공유</div>
+        <div class="benefit-desc-txt">숫자와 데이터로 뒷받침된 실제 운영 사례를 현장에서 직접 들을 수 있습니다.</div>
+      </div>
+    </li>
+    <li class="benefit-item">
+      <div class="benefit-icon-wrap">💬</div>
+      <div class="benefit-text-wrap">
+        <div class="benefit-title-txt">1:1 개별 상담</div>
+        <div class="benefit-desc-txt">우리 학원 지역 상권 특성에 맞는 운영 전략을 개별로 상담 받으실 수 있습니다.</div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- ── S5 SCHEDULE ── -->
+<section class="schedule-bg">
+  <div class="schedule-inner">
+    <div class="sch-eyebrow">지역별 일정</div>
+    <h2 class="sch-title">가까운 지역을 선택하세요</h2>
+    <p class="sch-sub">전국 10개 도시 순회 · 2026년 6월 2일 – 6월 19일</p>
+
+    <!-- 서울 특별 -->
+    <div class="seoul-card">
+      <div class="seoul-tag">★ Special — 서울</div>
+      <div class="seoul-city">서울</div>
+      <div class="seoul-date">6월 2일(화) · 코엑스</div>
+      <div class="seoul-detail">학부모 + 학원장 혼합 행사 · 오전 10:30 시작</div>
+      <div class="seoul-speaker">
+        <span class="seoul-speaker-dot"></span>
+        <span class="seoul-speaker-text">특별 연사 : 이정모 (전 국립과천과학관 관장) 초청 강연 포함</span>
+      </div>
+    </div>
+
+    <!-- 전국 안내 -->
+    <div class="national-notice">
+      <span class="national-notice-icon">ℹ</span>
+      <span class="national-notice-text">
+        <strong>전국 9개 지역 설명회는 학원장 전용</strong>으로 진행됩니다.<br>
+        리딩앤 담당자가 사업 설명을 직접 진행하며, <strong>서울과 달리 외부 연사 강연 없이 사업 설명에 집중</strong>합니다.
+      </span>
+    </div>
+
+    <div class="region-grid">
+      <div class="region-card"><div class="rc-city">수원</div><div class="rc-date">6월 9일</div><div class="rc-day">화요일</div></div>
+      <div class="region-card"><div class="rc-city">대전</div><div class="rc-date">6월 9일</div><div class="rc-day">화요일</div></div>
+      <div class="region-card"><div class="rc-city">천안</div><div class="rc-date">6월 10일</div><div class="rc-day">수요일</div></div>
+      <div class="region-card"><div class="rc-city">광명</div><div class="rc-date">6월 10일</div><div class="rc-day">수요일</div></div>
+      <div class="region-card"><div class="rc-city">광주</div><div class="rc-date">6월 11일</div><div class="rc-day">목요일</div></div>
+      <div class="region-card"><div class="rc-city">부산</div><div class="rc-date">6월 16일</div><div class="rc-day">화요일</div></div>
+      <div class="region-card"><div class="rc-city">청주</div><div class="rc-date">6월 16일</div><div class="rc-day">화요일</div></div>
+      <div class="region-card"><div class="rc-city">대구</div><div class="rc-date">6월 17일</div><div class="rc-day">수요일</div></div>
+      <div class="region-card"><div class="rc-city">평택·안성</div><div class="rc-date">6월 17일</div><div class="rc-day">수요일</div></div>
+    </div>
+
+    <div class="sch-cta">
+      <a href="#apply" class="cta-btn" style="margin-top:8px">내 지역 설명회 신청하기 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── TALK NUDGE ── -->
+<div class="talk-nudge">
+  <p><strong>6월 2일 서울, 특별 토크콘서트에서 먼저 교육 인사이트를 확인해보세요.</strong><br>전 국립과천과학관 관장 이정모 님이 직접 말하는 'AI 시대 독서 교육'의 답.</p>
+  <a href="#apply" class="cta-btn outline" style="color:var(--text-dark);border-color:rgba(201,168,76,0.4);background:transparent">서울 토크콘서트 함께 신청하기</a>
+</div>
+
+<!-- ── FORM ── -->
+<section class="form-section" id="apply">
+  <div class="form-inner">
+    <div class="form-title">사업설명회 참가 신청</div>
+    <div class="form-subtitle">희망 지역을 선택해 주시면 담당자가 직접 연락드립니다.</div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label class="form-label">이름 <span class="req">*</span></label>
+        <input class="form-input" type="text" placeholder="홍길동" id="f-name">
+      </div>
+      <div class="form-group">
+        <label class="form-label">연락처 <span class="req">*</span></label>
+        <input class="form-input" type="tel" placeholder="010-0000-0000" id="f-phone">
+      </div>
+      <div class="form-group">
+        <label class="form-label">학원명</label>
+        <input class="form-input" type="text" placeholder="○○영어학원" id="f-org">
+      </div>
+      <div class="form-group">
+        <label class="form-label">직책</label>
+        <input class="form-input" type="text" placeholder="원장, 부원장, 창업 준비 중 등" id="f-role">
+      </div>
+      <div class="form-group full">
+        <label class="form-label">참석 희망 지역 <span class="req">*</span></label>
+        <select class="form-input" id="f-region">
+          <option value="">지역을 선택해 주세요</option>
+          <option>서울 — 6월 2일(화) · 코엑스 (토크콘서트 포함)</option>
+          <option>수원 — 6월 9일(화)</option>
+          <option>대전 — 6월 9일(화)</option>
+          <option>천안 — 6월 10일(수)</option>
+          <option>광명 — 6월 10일(수)</option>
+          <option>광주 — 6월 11일(목)</option>
+          <option>부산 — 6월 16일(화)</option>
+          <option>청주 — 6월 16일(화)</option>
+          <option>대구 — 6월 17일(수)</option>
+          <option>평택·안성 — 6월 17일(수)</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label class="form-label">추가 문의사항</label>
+        <textarea class="form-input" placeholder="현재 운영 중인 학원 규모나 궁금한 점을 자유롭게 적어주세요." id="f-memo"></textarea>
+      </div>
+    </div>
+    <button class="form-submit" onclick="submitForm()">신청 완료하기</button>
+    <p class="form-agree">신청 완료 후 카카오톡 또는 문자로 확인 안내가 발송됩니다.<br>개인정보는 행사 운영 목적으로만 사용됩니다.</p>
+    <div class="success-msg" id="success">
+      <p>신청이 완료되었습니다!</p>
+      <p>담당자가 빠른 시일 내에 연락드리겠습니다.<br>설명회에서 직접 뵙겠습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PARENT NUDGE ── -->
+<div class="parent-nudge">
+  <p>자녀 교육에 관심 있는 학부모이신가요? <a onclick="alert('학부모용 페이지로 이동합니다.')">서울 토크콘서트 학부모 신청 페이지 →</a></p>
+</div>
+
+<footer class="footer">
+  <p>리딩앤 아카데미 | 아이포트폴리오 주식회사<br>
+  본 설명회는 사전 신청자에 한해 참가가 가능합니다.<br>
+  문의: readingand@iportfolio.co.kr</p>
+</footer>
+
+<script>
+function submitForm(){
+  const name=document.getElementById('f-name').value.trim();
+  const phone=document.getElementById('f-phone').value.trim();
+  const region=document.getElementById('f-region').value;
+  if(!name||!phone){alert('이름과 연락처는 필수 입력 항목입니다.');return}
+  if(!region){alert('참석 희망 지역을 선택해 주세요.');return}
+  document.getElementById('success').classList.add('show');
+  document.querySelector('.form-submit').style.display='none';
+  document.getElementById('success').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
