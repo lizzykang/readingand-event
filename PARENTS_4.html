@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>리딩앤 아카데미 | 2026 교육 인사이트 토크콘서트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2340;
+    --navy-light: #2d3a5c;
+    --gold: #c8a96e;
+    --gold-light: #e8cfa0;
+    --cream: #f9f6f0;
+    --cream-dark: #f0ebe1;
+    --text-dark: #1a1a1a;
+    --text-mid: #4a4a4a;
+    --text-light: #888;
+    --white: #ffffff;
+    --serif: 'Noto Serif KR', Georgia, serif;
+    --sans: 'Noto Sans KR', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); color: var(--text-dark); background: var(--white); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+  /* ── URGENCY BAR ── */
+  .urgency-bar {
+    background: #c0392b;
+    color: #fff;
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+  }
+  .urgency-bar span { opacity: 0.85; font-weight: 400; }
+
+  /* ── HEADER ── */
+  .site-header {
+    position: sticky;
+    top: 38px;
+    z-index: 100;
+    background: rgba(26,35,64,0.97);
+    backdrop-filter: blur(8px);
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(200,169,110,0.2);
+  }
+  .site-header .logo { font-family: var(--serif); color: var(--gold-light); font-size: 15px; letter-spacing: 0.05em; font-weight: 500; }
+  .site-header .cta-mini { background: var(--gold); color: var(--navy); font-size: 13px; font-weight: 700; padding: 8px 20px; border-radius: 2px; text-decoration: none; letter-spacing: 0.02em; transition: background 0.2s; }
+  .site-header .cta-mini:hover { background: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 100px 24px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,169,110,0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 80% 80%, rgba(200,169,110,0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; opacity: 0; animation: fadeUp 0.8s 0.2s ease forwards; }
+  .hero h1 { font-family: var(--serif); font-size: clamp(32px,5vw,58px); font-weight: 600; color: var(--white); line-height: 1.25; letter-spacing: -0.02em; max-width: 820px; margin-bottom: 20px; opacity: 0; animation: fadeUp 0.8s 0.4s ease forwards; }
+  .hero h1 em { font-style: normal; color: var(--gold-light); }
+  .hero-sub { font-size: clamp(15px,2vw,18px); color: rgba(255,255,255,0.65); margin-bottom: 48px; opacity: 0; animation: fadeUp 0.8s 0.55s ease forwards; }
+  .hero-sub strong { color: rgba(255,255,255,0.88); font-weight: 500; }
+  .hero-cta { display: inline-block; background: var(--gold); color: var(--navy); font-size: 16px; font-weight: 700; padding: 18px 48px; border-radius: 2px; text-decoration: none; letter-spacing: 0.04em; margin-bottom: 56px; opacity: 0; animation: fadeUp 0.8s 0.7s ease forwards; transition: background 0.2s, transform 0.15s; }
+  .hero-cta:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .hero-meta { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s 0.85s ease forwards; }
+  .hero-meta-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .hero-meta-item .label { font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.15em; text-transform: uppercase; }
+  .hero-meta-item .value { font-family: var(--serif); font-size: 15px; color: rgba(255,255,255,0.85); font-weight: 500; }
+  .hero-divider { width: 1px; height: 36px; background: rgba(200,169,110,0.3); align-self: center; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+  /* ── SECTIONS ── */
+  section { padding: 96px 24px; }
+  .container { max-width: 900px; margin: 0 auto; }
+  .container-wide { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+  .section-title { font-family: var(--serif); font-size: clamp(26px,3.5vw,38px); font-weight: 600; color: var(--navy); line-height: 1.3; letter-spacing: -0.02em; margin-bottom: 32px; }
+  .section-title em { font-style: normal; color: var(--gold); }
+
+  /* ── PAIN ── */
+  .pain-section { background: var(--cream); }
+  .pain-intro { font-size: clamp(16px,2vw,19px); font-weight: 700; color: var(--navy); margin-bottom: 40px; font-family: var(--serif); }
+  .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 20px; }
+  .pain-card { background: var(--white); border: 1px solid #e8e0d0; border-left: 3px solid var(--gold); padding: 28px 24px; border-radius: 2px; }
+  .pain-card .q-label { font-size: 11px; letter-spacing: 0.15em; color: var(--gold); font-weight: 600; margin-bottom: 10px; text-transform: uppercase; }
+  .pain-card p { font-size: 14.5px; color: var(--text-mid); line-height: 1.65; }
+
+  /* ── 기획의도 ── */
+  .intent-section { background: var(--white); }
+  .intent-body { font-size: clamp(15px,1.8vw,17px); color: var(--text-mid); line-height: 1.9; max-width: 780px; }
+  .intent-body strong { color: var(--navy); font-weight: 600; }
+  .intent-body p + p { margin-top: 20px; }
+  .intent-closing { margin-top: 36px; padding: 28px 32px; background: var(--cream); border-left: 3px solid var(--gold); font-family: var(--serif); font-size: 17px; color: var(--navy); line-height: 1.75; font-weight: 500; }
+
+  /* ── 연사 ── */
+  .speakers-section { background: var(--cream); }
+  .speakers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+  @media (max-width: 720px) { .speakers-grid { grid-template-columns: 1fr; } }
+
+  .speaker-card { background: var(--white); border-radius: 4px; overflow: hidden; border: 1px solid #e8e0d0; }
+  .speaker-photo {
+    width: 100%; aspect-ratio: 4/3;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .speaker-photo img { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
+  .speaker-photo .photo-placeholder { width:80px; height:80px; border-radius:50%; background:rgba(200,169,110,0.2); border:2px solid rgba(200,169,110,0.4); display:flex; align-items:center; justify-content:center; }
+  .speaker-photo .photo-placeholder svg { opacity:0.5; }
+  .speaker-photo .speaker-seq { position:absolute; top:16px; left:16px; font-size:11px; letter-spacing:0.18em; color:var(--gold); font-weight:600; text-transform:uppercase; }
+  .speaker-intro { padding:24px 28px 20px; border-bottom:1px solid var(--cream-dark); }
+  .speaker-intro .name { font-family:var(--serif); font-size:22px; font-weight:600; color:var(--navy); margin-bottom:4px; }
+  .speaker-intro .title { font-size:13px; color:var(--text-light); letter-spacing:0.02em; }
+  .speaker-hook { padding:20px 28px; font-size:14.5px; color:var(--text-mid); line-height:1.7; font-style:italic; border-bottom:1px solid var(--cream-dark); }
+  .speaker-hook strong { font-style:normal; color:var(--navy); }
+  .speaker-profile { padding:20px 28px 24px; }
+  .speaker-profile ul { list-style:none; margin-bottom:16px; }
+  .speaker-profile ul li { font-size:13.5px; color:var(--text-mid); padding:5px 0 5px 14px; position:relative; line-height:1.5; }
+  .speaker-profile ul li::before { content:'—'; position:absolute; left:0; color:var(--gold); font-size:12px; }
+  .speaker-topic { background:var(--cream); border-radius:2px; padding:12px 16px; font-size:13.5px; color:var(--navy); margin-bottom: 14px; }
+  .speaker-topic span { font-size:11px; color:var(--gold); letter-spacing:0.1em; text-transform:uppercase; font-weight:600; display:block; margin-bottom:4px; }
+  .speaker-btn { display:inline-block; border:1.5px solid var(--navy); color:var(--navy); font-size:12.5px; font-weight:600; padding:9px 18px; border-radius:2px; text-decoration:none; letter-spacing:0.03em; transition:all 0.2s; }
+  .speaker-btn:hover { background:var(--navy); color:var(--white); }
+
+  .speakers-bridge {
+    background: var(--navy); border-radius: 4px; padding: 40px 48px; text-align: center;
+  }
+  .speakers-bridge .bridge-title { font-family:var(--serif); font-size:20px; color:var(--white); font-weight:600; margin-bottom:24px; }
+  .bridge-quotes { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  @media (max-width:600px) { .bridge-quotes { grid-template-columns:1fr; } }
+  .bridge-quote { text-align:left; }
+  .bridge-quote .bq-speaker { font-size:11px; letter-spacing:0.15em; color:var(--gold); font-weight:600; text-transform:uppercase; margin-bottom:8px; }
+  .bridge-quote .bq-text { font-family:var(--serif); font-size:15px; color:rgba(255,255,255,0.8); line-height:1.6; font-style:italic; }
+  .bridge-quote .bq-text em { font-style:normal; color:var(--gold-light); font-weight:600; }
+
+  /* ── 현장 사진 ── */
+  .photos-section { background: var(--white); padding: 64px 24px; }
+  .photos-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+  @media (max-width:600px) { .photos-grid { grid-template-columns:repeat(2,1fr); } }
+  .photo-slot {
+    aspect-ratio:4/3; background:var(--cream); border:2px dashed #ddd5c8; border-radius:4px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+    color:var(--text-light); font-size:12px; letter-spacing:0.05em;
+  }
+  .photo-slot svg { opacity:0.4; }
+
+  /* ── 임팩트 ── */
+  .impact-section { background: var(--cream); }
+  .impact-graph-area {
+    background: var(--white); border: 1px solid #e8e0d0; border-radius:4px;
+    padding: 40px; text-align:center; margin-bottom: 48px;
+    min-height: 200px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  }
+  .impact-graph-area .graph-label { font-size:11px; letter-spacing:0.15em; color:var(--gold); font-weight:600; text-transform:uppercase; margin-bottom:16px; }
+  .impact-graph-area .graph-placeholder {
+    width:100%; max-width:560px; aspect-ratio:16/7;
+    background:linear-gradient(135deg,#f0ebe1,#e8e0d0);
+    border-radius:4px; display:flex; align-items:center; justify-content:center;
+    color:var(--text-light); font-size:13px; letter-spacing:0.05em; margin-bottom:20px;
+  }
+  .impact-graph-area p { font-size:14px; color:var(--text-mid); line-height:1.7; max-width:560px; }
+  .impact-graph-area strong { color:var(--navy); }
+
+  .impact-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  @media (max-width:720px) { .impact-cards { grid-template-columns:1fr; } }
+  .impact-card {
+    background:var(--white); border:1px solid #e8e0d0; border-radius:4px; padding:32px 28px;
+    position:relative; transition:transform 0.2s, box-shadow 0.2s;
+  }
+  .impact-card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(26,35,64,0.1); }
+  .impact-card .ic-num { font-family:var(--serif); font-size:42px; font-weight:300; color:var(--cream-dark); position:absolute; top:20px; right:24px; line-height:1; }
+  .impact-card .ic-icon { font-size:28px; margin-bottom:16px; display:block; }
+  .impact-card h4 { font-family:var(--serif); font-size:17px; font-weight:600; color:var(--navy); line-height:1.4; margin-bottom:12px; }
+  .impact-card p { font-size:13.5px; color:var(--text-mid); line-height:1.65; }
+
+  /* ── 참가혜택 ── */
+  .benefits-section { background: var(--white); }
+  .benefits-intro { font-size:15px; color:var(--text-mid); margin-bottom:40px; font-style:italic; }
+  .benefits-top { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:32px; }
+  @media (max-width:600px) { .benefits-top { grid-template-columns:1fr; } }
+  .benefit-card { border:1px solid #e8e0d0; border-radius:4px; padding:32px 28px; background:var(--cream); }
+  .benefit-card .b-badge { display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; background:var(--navy); color:var(--gold); padding:4px 10px; border-radius:2px; margin-bottom:16px; }
+  .benefit-card .b-icon { font-size:30px; margin-bottom:12px; display:block; }
+  .benefit-card h4 { font-size:16px; font-weight:700; color:var(--navy); margin-bottom:8px; }
+  .benefit-card p { font-size:13.5px; color:var(--text-mid); line-height:1.6; }
+  .benefit-card .b-note { font-size:12px; color:var(--text-light); margin-top:10px; }
+
+  .prizes-section-title { font-family:var(--serif); font-size:18px; font-weight:600; color:var(--navy); margin-bottom:20px; }
+  .prizes-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  @media (max-width:600px) { .prizes-grid { grid-template-columns:1fr; } }
+  .prize-card { border:1px solid #e8e0d0; border-radius:4px; overflow:hidden; background:var(--white); }
+  .prize-img { aspect-ratio:4/3; background:var(--cream); display:flex; align-items:center; justify-content:center; color:var(--text-light); font-size:12px; border-bottom:1px solid #e8e0d0; }
+  .prize-body { padding:16px; }
+  .prize-body .prize-num { font-size:11px; color:var(--gold); font-weight:700; letter-spacing:0.1em; margin-bottom:4px; }
+  .prize-body .prize-name { font-size:14px; font-weight:700; color:var(--navy); margin-bottom:4px; }
+  .prize-body .prize-count { font-size:12.5px; color:var(--text-light); }
+  .prizes-note { margin-top:20px; font-size:13px; color:var(--text-light); line-height:1.7; border-top:1px solid #e8e0d0; padding-top:16px; }
+  .prizes-note strong { color:var(--navy); }
+
+  /* ── INFO ── */
+  .info-section { background:var(--navy); padding:80px 24px; }
+  .info-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:40px; margin-bottom:56px; }
+  .info-item .info-label { font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:8px; }
+  .info-item .info-value { font-family:var(--serif); font-size:18px; color:var(--white); font-weight:500; line-height:1.4; }
+  .info-item .info-sub { font-size:13px; color:rgba(255,255,255,0.45); margin-top:4px; }
+  .info-seats { display:inline-block; background:rgba(192,57,43,0.25); border:1px solid rgba(192,57,43,0.5); color:#ff8a80; font-size:13px; font-weight:600; padding:6px 14px; border-radius:2px; margin-top:10px; letter-spacing:0.03em; }
+  .info-cta-wrap { text-align:center; }
+  .info-cta-wrap p { color:rgba(255,255,255,0.5); font-size:14px; margin-bottom:24px; }
+  .btn-primary { display:inline-block; background:var(--gold); color:var(--navy); font-size:16px; font-weight:700; padding:18px 56px; border-radius:2px; text-decoration:none; letter-spacing:0.04em; transition:background 0.2s, transform 0.15s; }
+  .btn-primary:hover { background:var(--gold-light); transform:translateY(-2px); }
+
+  /* ── APPLY ── */
+  .apply-section { background:var(--cream); padding:96px 24px; }
+  .apply-section .section-title { text-align:center; }
+  .apply-section .section-label { text-align:center; }
+  .apply-form { max-width:520px; margin:0 auto; background:var(--white); border:1px solid #e8e0d0; border-radius:4px; padding:40px; }
+  .form-group { margin-bottom:24px; }
+  .form-group label { display:block; font-size:13px; font-weight:600; color:var(--navy); margin-bottom:8px; }
+  .form-group label .req { color:var(--gold); margin-left:2px; }
+  .form-group input, .form-group select { width:100%; padding:12px 16px; border:1.5px solid #ddd5c8; border-radius:2px; font-family:var(--sans); font-size:14.5px; color:var(--text-dark); background:var(--white); transition:border-color 0.2s; outline:none; appearance:none; }
+  .form-group input:focus, .form-group select:focus { border-color:var(--gold); }
+  .btn-submit { width:100%; padding:16px; background:var(--navy); color:var(--white); font-family:var(--sans); font-size:15px; font-weight:700; border:none; border-radius:2px; cursor:pointer; letter-spacing:0.04em; transition:background 0.2s; margin-top:8px; }
+  .btn-submit:hover { background:var(--navy-light); }
+  .form-note { text-align:center; font-size:12px; color:var(--text-light); margin-top:16px; line-height:1.6; }
+  .success-msg { display:none; text-align:center; padding:48px 24px; }
+  .success-msg .check { font-size:40px; margin-bottom:16px; }
+  .success-msg h3 { font-family:var(--serif); font-size:22px; color:var(--navy); margin-bottom:10px; }
+  .success-msg p { font-size:14px; color:var(--text-mid); line-height:1.7; }
+
+  /* ── FOOTER ── */
+  footer { background:var(--navy); border-top:1px solid rgba(200,169,110,0.15); padding:40px 24px; text-align:center; font-size:13px; color:rgba(255,255,255,0.4); line-height:1.8; }
+  footer a { color:rgba(200,169,110,0.7); text-decoration:none; }
+  footer a:hover { color:var(--gold); }
+  .footer-divider { width:40px; height:1px; background:rgba(200,169,110,0.3); margin:20px auto; }
+
+  @media (max-width:600px) {
+    .site-header { padding:12px 16px; }
+    .apply-form { padding:28px 20px; }
+    .hero-divider { display:none; }
+    .hero-meta { gap:20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 긴급 바 -->
+<div class="urgency-bar">
+  현재 잔여석 <strong id="seatCount">75</strong>석 — 마감 임박 <span>· 이 페이지를 닫으면 선착순이 마감될 수 있으니 지금 바로 신청하세요!</span>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="logo">리딩앤 아카데미 × 토크콘서트 2026</div>
+  <a href="#apply" class="cta-mini">무료 신청하기</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">2026 교육 인사이트 토크콘서트 · 6월 2일 강남 교보빌딩</p>
+  <h1><em>3시간 투자로</em><br>아이의 교육 방향을 재정립하세요.</h1>
+  <p class="hero-sub">
+    과학자와 교육자가 말하는 영어 교육<br>
+    <strong>전 국립과천과학관 관장 이정모 × 리딩앤 아카데미 김성윤</strong>
+  </p>
+  <a href="#apply" class="hero-cta">지금 신청하기 →</a>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="label">일시</span>
+      <span class="value">2026년 6월 2일(화)</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-meta-item">
+      <span class="label">장소</span>
+      <span class="value">강남 교보빌딩</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-meta-item">
+      <span class="label">참가비</span>
+      <span class="value">무료 · 선착순</span>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="pain-section">
+  <div class="container">
+    <p class="section-label">혹시 이런 고민, 해보셨나요?</p>
+    <p class="pain-intro">AI 시대에 <strong>아이 교육 방향, 제대로 잡고 계신가요?</strong></p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="q-label">Q 01</div>
+        <p>ChatGPT가 답을 척척 내놓는 시대, 아이에게 진짜 필요한 능력은 무엇일까요?</p>
+      </div>
+      <div class="pain-card">
+        <div class="q-label">Q 02</div>
+        <p>AI가 대체할 수 없는 '질문하는 힘'은 어떻게 길러줄 수 있을까요?</p>
+      </div>
+      <div class="pain-card">
+        <div class="q-label">Q 03</div>
+        <p>과학관장 출신 전문가가 왜 이 시대에 독서와 이중언어를 강조하는 걸까요?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 기획 의도 -->
+<section class="intent-section">
+  <div class="container">
+    <p class="section-label">토크콘서트 기획 의도</p>
+    <h2 class="section-title">AI 시대에 살아남는 아이는<br><em>질문하는 이중언어자</em>입니다</h2>
+    <div class="intent-body">
+      <p>AI는 답을 줍니다. 그러나 <strong>어떤 질문을 던지는가</strong>는 사람만이 할 수 있습니다. 우리는 "아이의 교육에 대해 어떻게 방향성을 잡아야 할까요?"라는 질문에서 이 토크콘서트를 기획하였습니다.</p>
+      <p>우리의 답은 명확했습니다. <strong>호기심은 재능이 아니라 훈련</strong>이며, 그 훈련의 가장 강력한 도구가 <strong>독서</strong>라는 것이었습니다. 여기에 더해, 두 개의 언어를 자연스럽게 구사하는 이중언어자는 더 창의적으로, 더 많이 질문한다는 것이 중요합니다.</p>
+    </div>
+    <div class="intent-closing">
+      이번 토크콘서트에 참여하여 과학자와 교육자가 왜 지금 독서와 이중언어 교육을 강조하는지 알아보고, 아이 교육에 대한 방향을 재정립하는 계기가 되시길 바랍니다.
+    </div>
+  </div>
+</section>
+
+<!-- 연사 소개 -->
+<section class="speakers-section">
+  <div class="container">
+    <p class="section-label">연사 소개</p>
+    <h2 class="section-title">각자의 분야에서<br><em>교육을 말하는 두 사람</em></h2>
+    <div class="speakers-grid">
+
+      <!-- 이정모 -->
+      <div class="speaker-card">
+        <div class="speaker-photo">
+          <span class="speaker-seq">1st Speaker — 기조강연</span>
+          <div class="photo-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#c8a96e" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+        </div>
+        <div class="speaker-intro">
+          <div class="name">이정모</div>
+          <div class="title">전 국립과천과학관 관장 · 과학커뮤니케이터</div>
+        </div>
+        <div class="speaker-hook">
+          <strong>'털보관장'</strong>으로 알려진 이정모 관장. 국립과천과학관 관장이자 과학커뮤니케이터인 그는 독서에 대해 어떻게 생각하고 있을까요?
+        </div>
+        <div class="speaker-profile">
+          <ul>
+            <li>서대문자연사박물관·서울시립과학관·국립과천과학관 관장 12년</li>
+            <li>JTBC 차이나는 클라스, tvN 어쩌다 어른 출연</li>
+            <li>『저도 과학은 어렵습니다만』 등 다수 저서</li>
+            <li>2019년 과학기술훈장 진보장 수상</li>
+          </ul>
+          <div class="speaker-topic">
+            <span>강연 주제</span>
+            독서가 가능하게 하는, '질문'하는 아이
+          </div>
+          <a href="#" class="speaker-btn">털보관장 이정모, 이런 분입니다 →</a>
+        </div>
+      </div>
+
+      <!-- 김성윤 -->
+      <div class="speaker-card">
+        <div class="speaker-photo">
+          <span class="speaker-seq">2nd Speaker</span>
+          <div class="photo-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#c8a96e" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+        </div>
+        <div class="speaker-intro">
+          <div class="name">김성윤</div>
+          <div class="title">아이포트폴리오 대표 · 리딩앤 아카데미 창업자</div>
+        </div>
+        <div class="speaker-hook">
+          10년 넘게 <strong>"언어를 배우는 유일한 방법은 독서"</strong>라는 목소리를 내는 김성윤 대표. 그가 제시하는 교육 방법은 무엇일까요?
+        </div>
+        <div class="speaker-profile">
+          <ul>
+            <li>아이포트폴리오 2011년 창립</li>
+            <li>AI 기반 디지털 영어독서 플랫폼 리딩앤 개발</li>
+            <li>옥스포드대학출판부 공식 파트너</li>
+            <li>현재 120개국 450만 사용자 운영</li>
+          </ul>
+          <div class="speaker-topic">
+            <span>강연 주제</span>
+            '특별한' 독서가 가능하게 하는, '이중언어자' 아이
+          </div>
+          <a href="#" class="speaker-btn">대치동내부고발자 채널 출연 영상 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 브릿지 -->
+    <div class="speakers-bridge">
+      <div class="bridge-title">따로인 것 같은 두 개의 강연은 하나로 이어집니다</div>
+      <div class="bridge-quotes">
+        <div class="bridge-quote">
+          <div class="bq-speaker">이정모 관장이 던지는 질문</div>
+          <div class="bq-text"><em>"왜 호기심인가?"</em></div>
+        </div>
+        <div class="bridge-quote">
+          <div class="bq-speaker">김성윤 대표가 건네는 답</div>
+          <div class="bq-text"><em>"이렇게 키우면 됩니다"</em></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 현장 사진 -->
+<section class="photos-section">
+  <div class="container-wide">
+    <div class="photos-grid">
+      <div class="photo-slot">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        사진 추가
+      </div>
+      <div class="photo-slot">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        사진 추가
+      </div>
+      <div class="photo-slot">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        사진 추가
+      </div>
+      <div class="photo-slot">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        사진 추가
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 부모의 3시간 -->
+<section class="impact-section">
+  <div class="container">
+    <p class="section-label">이 강연에서 얻는 것</p>
+    <h2 class="section-title">부모의 3시간으로<br><em>바뀌는 아이의 미래</em></h2>
+
+    <!-- 그래프 영역 -->
+    <div class="impact-graph-area">
+      <div class="graph-label">2032년 AI가 만드는 격차</div>
+      <div class="graph-placeholder">
+        <!-- 실제 그래프 이미지로 교체: <img src="graph.png" style="width:100%;height:100%;object-fit:contain"> -->
+        그래프 이미지 추가
+      </div>
+      <p>2032년, AI가 만드는 격차 — <strong>지배층(Leaders)</strong>과 <strong>기본소득층(Basic Income)</strong>.<br>지금 어떤 교육을 선택하느냐가 우리 아이의 위치를 결정합니다.</p>
+    </div>
+
+    <!-- 3개 박스 가로 나란히 -->
+    <div class="impact-cards">
+      <div class="impact-card">
+        <span class="ic-num">01</span>
+        <span class="ic-icon">❓</span>
+        <h4>질문하는 아이로 키우는 구체적인 방법</h4>
+        <p>호기심은 재능이 아니라 훈련입니다. 과학자의 언어로 듣는 호기심 교육의 실체.</p>
+      </div>
+      <div class="impact-card">
+        <span class="ic-num">02</span>
+        <span class="ic-icon">🚫</span>
+        <h4>이런 학원, 절대로 보내면 안 됩니다</h4>
+        <p>김성윤 대표가 직접 말하는 잘못된 영어교육의 민낯. 바이럴 콘텐츠로 화제가 된 그 이야기를 현장에서 직접 듣습니다.</p>
+      </div>
+      <div class="impact-card">
+        <span class="ic-num">03</span>
+        <span class="ic-icon">🌐</span>
+        <h4>이중언어자로 키워야 하는 진짜 이유</h4>
+        <p>암기식 영어가 아닌, 자연스러운 노출로 진짜 영어를 구사하는 아이로 키우는 방법.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 참가 혜택 -->
+<section class="benefits-section">
+  <div class="container">
+    <p class="section-label">참가 혜택</p>
+    <h2 class="section-title">오신 분들께<br><em>특별히 준비했습니다</em></h2>
+    <p class="benefits-intro">강연보다 더 챙겨가실 게 있어요</p>
+
+    <div class="benefits-top">
+      <div class="benefit-card">
+        <div class="b-badge">참여자 전원</div>
+        <span class="b-icon">📘</span>
+        <h4>강연 요약집 증정</h4>
+        <p>시크릿 교육 로드맵 자료집 — 현장에 오신 모든 분께 드립니다. 두 연사의 핵심 인사이트를 담은 실용 가이드예요.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="b-badge">사전 신청자 추첨 · 50명</div>
+        <span class="b-icon">🔬</span>
+        <h4>어린이과학동아 2개월 구독권</h4>
+        <p>지금 참가 신청을 완료하시면 자동 응모됩니다.</p>
+        <p class="b-note"><strong>현장에 못 오셔도 당첨 가능</strong>해요.</p>
+      </div>
+    </div>
+
+    <div class="prizes-section-title">현장 추첨 — 당일 참석자 한정</div>
+    <div class="prizes-grid">
+      <div class="prize-card">
+        <div class="prize-img">이미지 추가</div>
+        <div class="prize-body">
+          <div class="prize-num">Prize 01</div>
+          <div class="prize-name">하모니힐스</div>
+          <div class="prize-count">3명 추첨</div>
+        </div>
+      </div>
+      <div class="prize-card">
+        <div class="prize-img">이미지 추가</div>
+        <div class="prize-body">
+          <div class="prize-num">Prize 02</div>
+          <div class="prize-name">옥스포드 양우산</div>
+          <div class="prize-count">5명 추첨</div>
+        </div>
+      </div>
+      <div class="prize-card">
+        <div class="prize-img">이미지 추가</div>
+        <div class="prize-body">
+          <div class="prize-num">Prize 03</div>
+          <div class="prize-name">Oxford Picture Dictionary</div>
+          <div class="prize-count">10명 추첨</div>
+        </div>
+      </div>
+    </div>
+    <div class="prizes-note">
+      어과동 구독권은 <strong>지금 신청</strong>하시면 자동 응모 · 현장 추첨은 <strong>당일 참석자만</strong> 응모 가능합니다.<br>
+      🎯 사전 신청 추첨 + 현장 추첨까지, 총 두 번의 당첨 기회가 주어집니다.
+    </div>
+  </div>
+</section>
+
+<!-- 행사 정보 -->
+<section class="info-section">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="info-label">일시</div>
+        <div class="info-value">2026년 6월 2일(화)</div>
+        <div class="info-sub">오전 10:30 시작 · 10:00부터 입장</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">장소</div>
+        <div class="info-value">강남 교보빌딩</div>
+        <div class="info-sub">엘리베이터 협소 · 30분 전 입장 권장</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">대상</div>
+        <div class="info-value">학부모 · 교육관계자</div>
+        <div class="info-sub">자녀 동반 가능</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">참가비</div>
+        <div class="info-value">무료</div>
+        <div class="info-sub">사전 신청 필수</div>
+        <div class="info-seats">현재 잔여석 <span id="seatCount2">75</span>석</div>
+      </div>
+    </div>
+    <div class="info-cta-wrap">
+      <p>자리가 한정되어 있습니다. 지금 바로 신청하세요.</p>
+      <a href="#apply" class="btn-primary">무료 참가 신청하기 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 신청 폼 -->
+<section class="apply-section" id="apply">
+  <div class="container">
+    <p class="section-label">참가 신청</p>
+    <h2 class="section-title">아래 정보를 입력해 주시면<br>확인 연락을 드립니다.</h2>
+    <div class="apply-form" id="applyForm">
+      <div class="form-group">
+        <label>이름<span class="req">*</span></label>
+        <input type="text" id="name" placeholder="홍길동">
+      </div>
+      <div class="form-group">
+        <label>연락처<span class="req">*</span></label>
+        <input type="tel" id="phone" placeholder="010-0000-0000">
+      </div>
+      <div class="form-group">
+        <label>자녀 학년</label>
+        <select id="grade">
+          <option value="">선택</option>
+          <option>유아 (7세 이하)</option>
+          <option>초등 저학년 (1~3학년)</option>
+          <option>초등 고학년 (4~6학년)</option>
+          <option>중학생</option>
+          <option>고등학생</option>
+        </select>
+      </div>
+      <button class="btn-submit" onclick="handleSubmit()">신청 완료하기</button>
+      <p class="form-note">
+        신청 완료 후 카카오톡 또는 문자로 확인 안내가 발송됩니다.<br>
+        수집된 개인정보는 행사 안내 및 리딩앤 아카데미 관련 정보 제공에 활용될 수 있습니다.
+      </p>
+    </div>
+    <div class="apply-form success-msg" id="successMsg">
+      <div class="check">✅</div>
+      <h3>신청이 완료되었습니다!</h3>
+      <p>입력하신 연락처로 참가 확인 안내를 드릴 예정입니다.<br>6월 2일, 강남 교보빌딩에서 뵙겠습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-divider"></div>
+  <p>리딩앤 아카데미 | 아이포트폴리오 주식회사</p>
+  <p>본 행사는 사전 신청자에 한해 참가가 가능합니다.</p>
+  <p>문의: <a href="mailto:readingand@iportfolio.co.kr">readingand@iportfolio.co.kr</a></p>
+  <div class="footer-divider"></div>
+  <p>학원을 운영하고 계신가요? <a href="#">전국 학원장 설명회 일정 보기 →</a></p>
+</footer>
+
+<script>
+function handleSubmit() {
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  if (!name || !phone) { alert('이름과 연락처는 필수 입력 항목입니다.'); return; }
+  document.getElementById('applyForm').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+  window.scrollTo({ top: document.getElementById('apply').offsetTop - 80, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
